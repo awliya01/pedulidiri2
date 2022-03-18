@@ -123,8 +123,8 @@
     </div>
 
 
-    <script>
-        let selectProvinsi = document.getElementById('selectProvinsi');
+     <script>
+    let selectProvinsi = document.getElementById('selectProvinsi');
         let selectKabupaten = document.getElementById('selectKabupaten');
         let selectKecamatan = document.getElementById('selectKecamatan');
         let selectKelurahan = document.getElementById('selectKelurahan');

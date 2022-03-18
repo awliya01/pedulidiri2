@@ -30,10 +30,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/user/edit/{id}', 'UserController@edit');
     Route::put('/user/update/{id}', 'UserController@update');
     Route::get('/user/delete/{id}', 'UserController@destroy');
-    Route::get('/user/show/{id}' , 'UserController@show');
+    Route::get('/user/show/{id}', 'UserController@show');
 });
 
 
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/p', function () {
+    return view('template.app');
+});
