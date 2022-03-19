@@ -11,7 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <title>Chain App Dev - App Landing Page HTML5 Template</title>
 
     <!-- Bootstrap core CSS -->
@@ -28,6 +29,7 @@ https://templatemo.com/tm-570-chain-app-dev
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <link rel="stylesheet" href="{{ asset('template/assets/css/templatemo-chain-app-dev.css') }}">
     <link rel="stylesheet" href="{{ asset('template/assets/css/animated.css') }}">
     <link rel="stylesheet" href="{{ asset('template/assets/css/owl.css') }}">
@@ -37,7 +39,7 @@ https://templatemo.com/tm-570-chain-app-dev
 <body>
 
     <!-- ***** Preloader Start ***** -->
-    <div id="js-preloader" class="js-preloader">
+    {{-- <div id="js-preloader" class="js-preloader">
         <div class="preloader-inner">
             <span class="dot"></span>
             <div class="dots">
@@ -46,13 +48,13 @@ https://templatemo.com/tm-570-chain-app-dev
                 <span></span>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- ***** Preloader End ***** -->
 
     <!-- ***** Header Area Start ***** -->
     @include('template.partikel.header')
     <!-- ***** Header Area End ***** -->
-    @include('template.partikel.modal.login')
+    @include('template.partikel.modal.auth')
 
 
     <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
@@ -549,7 +551,7 @@ https://templatemo.com/tm-570-chain-app-dev
         </div>
     </div> --}}
 
-    <footer id="newsletter">
+    {{-- <footer id="newsletter">
         <div class="container">
             {{-- <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -640,9 +642,9 @@ https://templatemo.com/tm-570-chain-app-dev
                         </p>
                     </div>
                 </div> --}}
-        </div>
-        </div>
-    </footer>
+    </div>
+    </div>
+    </footer> 
 
 
     <!-- Scripts -->
@@ -653,6 +655,16 @@ https://templatemo.com/tm-570-chain-app-dev
     <script src="{{ asset('template/assets/js/imagesloaded.js') }}"></script>
     <script src="{{ asset('template/assets/js/popup.js') }}"></script>
     <script src="{{ asset('template/assets/js/custom.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

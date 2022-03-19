@@ -1,130 +1,136 @@
-@extends('layouts.app')
+@extends('template.app')
 {{-- @section('title', 'PEDULI DIRI') --}}
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                @include('perjalanan.profile.main')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+
+    <div class="col-lg-4">
+        <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+            <div class="row">
+                <div class="col-lg-12">
+                    @include('perjalanan.profile.main')
+                </div>
             </div>
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Edit Profile</h3>
-                    </div>
-                    <div class="card-body">
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Edit Profile</h3>
+                </div>
+                <div class="card-body text-left">
 
-                        <form action="/user/update/{{ $edit->id }}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            @method('put')
-                            <div class="row">
-                                <div class="col-md-12">
+                    <form action="/user/update/{{ $edit->id }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('put')
+                        <div class="row">
+                            <div class="col-md-12">
 
-                                    <div class="form-group">
-                                        <label class="form-label">NIK</label>
-                                        <input type="number" class="form-control" name="nik" value="{{ $edit->nik }}"
-                                            placeholder="Text..">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Nama</label>
-                                        <input type="text" class="form-control" name="nama" value="{{ $edit->nama }}"
-                                            placeholder="Text..">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">No. Telp</label>
-                                        <input type="number" class="form-control" name="telp" value="{{ $edit->telp }}"
-                                            placeholder="Text..">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label">Email</label>
-                                        <input type="email" class="form-control" name="email" value="{{ $edit->email }}"
-                                            placeholder="Text..">
-                                    </div>
-
-                                    {{-- alamat --}}
-                                    {{-- provinsi --}}
-                                    <div class="form-group">
-                                        <label class="form-label">Provinsi</label>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="selectProvinsi">Provinsi</label>
-                                            </div>
-                                            <select class="custom-select" name="selectProvinsi" id="selectProvinsi">
-                                                {{-- <option>Provinsi</option> --}}
-                                            </select>
-                                        </div>
-                                    </div>
-                                    {{-- kabupaten/kota --}}
-                                    <div class="form-group">
-                                        <label class="form-label">Kabupaten</label>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="selectKabupaten">Kabupaten</label>
-                                            </div>
-                                            <select class="custom-select" name="selectKabupaten" id="selectKabupaten">
-                                                {{-- <option>Kabupaten</option> --}}
-                                            </select>
-                                        </div>
-                                    </div>
-                                    {{-- kecamatan --}}
-                                    <div class="form-group">
-                                        <label class="form-label">Kecamatan</label>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="selectKecamatan">Kecamatan</label>
-                                            </div>
-                                            <select class="custom-select" name="selectKecamatan" id="selectKecamatan">
-                                                {{-- <option value="Kecamatan"></option> --}}
-                                            </select>
-                                        </div>
-                                    </div>
-                                    {{-- kelurahan --}}
-                                    <div class="form-group">
-                                        <label class="form-label">Kelurahan</label>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="selectKelurahan">Kelurahan</label>
-                                            </div>
-                                            <select class="custom-select" name="selectKelurahan" id="selectKelurahan">
-                                                {{-- <option> Kelurahan </option> --}}
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    {{-- final alamat --}}
-                                    <div class="form-group">
-                                        <label class="form-label">Alamat</label>
-                                        <textarea class="form-control" name="alamat"
-                                            id="alamat">{{ $edit->alamat ?? '' }}</textarea>
-                                    </div>
-                                    {{-- end alamat --}}
-
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Foto</label>
-                                        <div class="input-group mb-3">
-                                            <input type="file" name="foto" class="form-control">
-                                        </div>
-                                    </div>
-
+                                <div class="form-group">
+                                    <label class="form-label">NIK</label>
+                                    <input type="number" class="form-control" name="nik" value="{{ $edit->nik }}"
+                                        placeholder="Text..">
                                 </div>
-                            </div>
-                            <div class="card-footer text-right ">
-                                <div class="d-flex justify-content-end">
-                                    <a href="/user/show/{{ $edit->id }}" class="btn btn-secondary">Kembali ke Halaman
-                                        Data Profile</a>
-                                    <button type="submit" class="btn btn-success ml-2">Simpan Data</button>
+                                <div class="form-group">
+                                    <label class="form-label">Nama</label>
+                                    <input type="text" class="form-control" name="nama" value="{{ $edit->nama }}"
+                                        placeholder="Text..">
                                 </div>
-                            </div>
-                        </form>
+                                <div class="form-group">
+                                    <label class="form-label">No. Telp</label>
+                                    <input type="number" class="form-control" name="telp" value="{{ $edit->telp }}"
+                                        placeholder="Text..">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" name="email" value="{{ $edit->email }}"
+                                        placeholder="Text..">
+                                </div>
 
-                    </div>
+                                {{-- alamat --}}
+                                {{-- provinsi --}}
+                                <div class="form-group">
+                                    <label class="form-label">Provinsi</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="selectProvinsi">Provinsi</label>
+                                        </div>
+                                        <select class="custom-select" name="selectProvinsi" id="selectProvinsi">
+                                            {{-- <option>Provinsi</option> --}}
+                                        </select>
+                                    </div>
+                                </div>
+                                {{-- kabupaten/kota --}}
+                                <div class="form-group">
+                                    <label class="form-label">Kabupaten</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="selectKabupaten">Kabupaten</label>
+                                        </div>
+                                        <select class="custom-select" name="selectKabupaten" id="selectKabupaten">
+                                            {{-- <option>Kabupaten</option> --}}
+                                        </select>
+                                    </div>
+                                </div>
+                                {{-- kecamatan --}}
+                                <div class="form-group">
+                                    <label class="form-label">Kecamatan</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="selectKecamatan">Kecamatan</label>
+                                        </div>
+                                        <select class="custom-select" name="selectKecamatan" id="selectKecamatan">
+                                            {{-- <option value="Kecamatan"></option> --}}
+                                        </select>
+                                    </div>
+                                </div>
+                                {{-- kelurahan --}}
+                                <div class="form-group">
+                                    <label class="form-label">Kelurahan</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="selectKelurahan">Kelurahan</label>
+                                        </div>
+                                        <select class="custom-select" name="selectKelurahan" id="selectKelurahan">
+                                            {{-- <option> Kelurahan </option> --}}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {{-- final alamat --}}
+                                <div class="form-group">
+                                    <label class="form-label">Alamat</label>
+                                    <textarea class="form-control" name="alamat" id="alamat">{{ $edit->alamat ?? '' }}</textarea>
+                                </div>
+                                {{-- end alamat --}}
+
+                                <div class="form-group">
+                                    <label for="" class="form-label">Foto</label>
+                                    <div class="input-group mb-3">
+                                        <input type="file" name="foto" class="form-control">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-footer text-right ">
+                            <div class="d-flex justify-content-end">
+                                <a href="/user/show/{{ $edit->id }}" class="btn btn-secondary">Kembali ke Halaman
+                                    Data Profile</a>
+                                <button type="submit" class="btn btn-success ml-2">Simpan Data</button>
+                            </div>
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
     </div>
 
-
-     <script>
-    let selectProvinsi = document.getElementById('selectProvinsi');
+    <script>
+        let selectProvinsi = document.getElementById('selectProvinsi');
         let selectKabupaten = document.getElementById('selectKabupaten');
         let selectKecamatan = document.getElementById('selectKecamatan');
         let selectKelurahan = document.getElementById('selectKelurahan');

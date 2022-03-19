@@ -10,10 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::group(['middleware' => 'auth'], function () {
     //Route Perjalanan
@@ -36,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 Auth::routes();
+Route::get('/logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/p', function () {

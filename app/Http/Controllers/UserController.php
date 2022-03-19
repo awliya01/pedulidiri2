@@ -114,7 +114,7 @@ class UserController extends Controller
 
         $where->update($data);
         // dd($id);
-        return redirect("/user/edit/$id");
+        return redirect("/user/show/$id");
     }
 
     /**

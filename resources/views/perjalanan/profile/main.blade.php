@@ -1,5 +1,5 @@
 <div class="card">
-    <div class="card-header">
+    <div class="card-header pt-2">
         <h4>Profile</h4>
     </div>
 
