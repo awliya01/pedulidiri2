@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h2>SELAMAT DATANG DI PEDULI DIRI</h2>
-                    <p>Anda Dapat Menyimpan Data Perjalanan Anda </p>
+                    <p>Anda Dapat Menyimpan Data Perjalanan Anda</p>
                 </div>
                 <div class="col-lg-12">
                     {{-- <div class="white-button first-button scroll-to-section">

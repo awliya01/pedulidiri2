@@ -14,6 +14,7 @@
             </div>
         </div>
     </div>
+    
     <div class="col-lg-8">
         <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
             <div class="card">
@@ -24,7 +25,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <table class="table table-hover">
+                            <table class="table table-responsive table-hover">
                                 <thead>
                                     <th>No</th>
                                     <th>Tanggal Perjalanan</th>
@@ -42,25 +43,38 @@
                                 </thead>
 
                                 @foreach ($table as $no => $data)
-                                    <tr>
-                                        <td>{{ $no + 1 }}</td>
-                                        <td>{{ $data->tanggal }}</td>
-                                        <td>{{ $data->jam }}</td>
-                                        <td>{{ $data->lokasi }}</td>
-                                        <td>{{ $data->suhu_tubuh }}</td>
-                                        <td>
-                                            {{-- <button type="button" class="btn btn-danger" data-toggle="modal"
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ $no + 1 }}</td>
+                                            <td>{{ $data->tanggal }}</td>
+                                            <td>{{ $data->jam }}</td>
+                                            <td>{{ $data->lokasi }}</td>
+                                            <td>{{ $data->suhu_tubuh }}</td>
+                                            <td>
+                                                {{-- <button type="button" class="btn btn-danger" data-toggle="modal"
                                                 data-target="#delete">
                                                 Hapus
                                             </button> --}}
-                                            <a href="/diri/destroy/{{ $data->id_perjalanan }}" class="btn btn-danger"
-                                                onclick="return confirm('Anda Yakin Ingin Menghapusnya?')">Hapus</a>
-                                            {{-- @include('perjalanan.modal.delete') --}}
-                                        </td>
-                                    </tr>
+                                                <a href="/diri/destroy/{{ $data->id_perjalanan }}" class="btn btn-danger"
+                                                    onclick="return confirm('Anda Yakin Ingin Menghapusnya?')">Hapus</a>
+                                                {{-- @include('perjalanan.modal.delete') --}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 @endforeach
 
                             </table>
+                            <div class="d-flex justify-content-start">
+                                Halaman
+                                {{ $table->currentPage() }}
+
+                                {{-- {{ $table->lastPage() }} --}}
+
+                            </div>
+                            {{-- {{ $table->currentPage() }} --}}
+
+                            {{ $table->links() }}
+
                         </div>
                     </div>
 

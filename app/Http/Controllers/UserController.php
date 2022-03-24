@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use PDF;
 
 class UserController extends Controller
 {
@@ -14,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+        $user = User::paginate(5);
         return view('user.index', compact('user'));
     }
 
@@ -127,5 +128,20 @@ class UserController extends Controller
     {
         User::find($id)->delete();
         return redirect('/diri');
+    }
+
+    public function generatePDF()
+    {
+        $user = User::all();
+     
+        $pdf = PDF::loadview('print.user_pdf', ['user' => $user]);
+        // return $pdf->download('laporan-user.pdf');
+        return $pdf->stream();
+    }
+
+    public function detail($id)
+    {
+        $data = User::find($id);
+        return view('user.detail',compact('data') );
     }
 }

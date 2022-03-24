@@ -15,7 +15,11 @@ class PerjalananController extends Controller
      */
     public function index()
     {
-        $table = Perjalanan::where('id_user', Auth::user()->id)->get();
+        if (Auth::user()->role == 'admin') {
+            $table = Perjalanan::simplePaginate(3);
+        } else {
+            $table = Perjalanan::where('id_user', Auth::user()->id)->simplePaginate(3);
+        }
         return view('perjalanan.index', compact('table'));
     }
 
@@ -94,4 +98,6 @@ class PerjalananController extends Controller
         $table = Perjalanan::find($id_perjalanan)->delete();
         return redirect('/diri');
     }
+
+    
 }

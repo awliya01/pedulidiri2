@@ -4,8 +4,8 @@
     </div>
 
     <img class="card-img-top"
-        @if (Auth::user()->foto > 0) src="{{ asset('foto/' . Auth::user()->foto) }}"  style="height: 200px;" @else
-        src="{{ asset('foto/default.png') }}" @endif
+        @if (Auth::user()->foto > 0) src="{{ asset('foto/' . Auth::user()->foto) }}"  style="height: 250px;" @else
+        src="{{ asset('foto/profile.png') }}"  style="height: 250px;" @endif
         alt="Card image cap">
 
     <div class="card-body">

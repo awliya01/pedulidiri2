@@ -5,14 +5,18 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="" class="logo">
-                        <img src="{{ asset('template/assets/images/logo.png') }}" alt="Chain App Dev">
+                        <img src="{{ asset('template/assets/images/bg-asli.png') }}" alt="Chain App Dev">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="/home" class="active">Home</a></li>
                         @if (isset(Auth::user()->nama))
+                            <li class="scroll-to-section"><a href="/home" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="/diri" class="active">Data Perjalanan</a></li>
+                            @if (Auth::user()->role == 'admin')
+                                <li class="scroll-to-section"><a href="/user" class="active">Data User</a></li>
+                            @endif
+
                         @endif
 
 

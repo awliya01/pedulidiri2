@@ -26,8 +26,9 @@
             </div> --}}
 
             <div class="action_btns">
-                <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
-                <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
+                <div class="one_half"><a href="{{ route('login') }}" class="btn">Login</a></div>
+                <div class="one_half last"><a href="{{ route('register') }}"
+                        class="btn">Sign up</a></div>
             </div>
         </div>
 
@@ -74,7 +75,8 @@
 
         <!-- Register Form -->
         <div class="user_register">
-            <form>
+            <form action="{{ route('register') }}" method="post">
+                @csrf
                 <div class="row">
                     <div class="col-md-6">
                         <label>NIK</label>
@@ -84,6 +86,10 @@
                         <label>Nama</label>
                         <input type="text" class="form-control">
                     </div>
+                </div>
+
+                <div class="row">
+
                 </div>
 
                 <div class="row">
@@ -120,7 +126,8 @@
                         <div class="action_btns">
                             <div class="one_half"><a href="#" class="btn back_btn"><i
                                         class="fa fa-angle-double-left"></i> Back</a></div>
-                            <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+                            <div class="one_half last"><button type="submit" class="btn btn_red">Register</button>
+                            </div>
                         </div>
                     </div>
                 </div>

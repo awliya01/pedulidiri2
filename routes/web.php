@@ -26,10 +26,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/user', 'UserController@index');
     Route::get('/user/create', 'UserController@create');
     Route::post('/user/store', 'UserController@store');
+    Route::get('/user/detail/{id}', 'UserController@detail');
     Route::get('/user/edit/{id}', 'UserController@edit');
     Route::put('/user/update/{id}', 'UserController@update');
     Route::get('/user/delete/{id}', 'UserController@destroy');
     Route::get('/user/show/{id}', 'UserController@show');
+    Route::get('/user/generate-pdf', 'UserController@generatePDF');
 });
 
 
