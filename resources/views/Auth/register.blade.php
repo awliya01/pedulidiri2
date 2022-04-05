@@ -5,7 +5,7 @@
         <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
             <div class="row">
                 <div class="col-md-12 mb-5">
-                    <h1 style="color:white">Register</h1>
+                    <h1 style="color:black">Register</h1>
                 </div>
                 <div class="col-lg-12">
                     <form action="{{ route('register') }}" method="post">
@@ -14,7 +14,8 @@
                             <div class="col-md-6">
                                 <label for="" style="color:white">NIK</label>
                                 <input type="text" name="nik" class="form-control @error('nik') is-invalid @enderror"
-                                    id="nik" placeholder="Enter nik" value="{{ old('nik') }}">
+                                    id="nik" placeholder="Enter nik" value="{{ old('nik') }}"
+                                    onkeypress="return onlyNumberKey(event)" maxlength="16">
                                 @error('nik')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -47,7 +48,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="" style="color:white">Nomor Telpon</label>
-                                <input type="text" name="telp" class="form-control @error('telp') is-invalid @enderror"
+                                <input type="number" name="telp" class="form-control @error('telp') is-invalid @enderror"
                                     id="telp" placeholder="Enter telp" value="{{ old('telp') }}">
                                 @error('telp')
                                     <span class="invalid-feedback" role="alert">
@@ -90,9 +91,27 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row mb-4">
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <style>
+                                    a {
+                                        color: blue;
+                                    }
+
+                                    a:hover {
+                                        Color: black;
+                                    }
+
+                                </style>
+                                <label for="">
+                                    Sudah Punya Akun ?
+                                    <a href="{{ route('login') }}">Login</a>
+                                </label>
                             </div>
                         </div>
                     </form>
@@ -113,4 +132,14 @@
             <img src="{{ asset('foto/Sign up-amico.png') }}" alt="">
         </div>
     </div>
+
+    <script>
+        function onlyNumberKey(evt) {
+            var code = (evt.which) ? evt.which : evt.keyCode
+            if (code > 31 && code < 48 || code > 57) {
+                return false;
+            }
+            return true;
+        }
+    </script>
 @endsection

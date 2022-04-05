@@ -88,7 +88,7 @@
                                 </div>
                                 {{-- kelurahan --}}
                                 <div class="form-group">
-                                    <label class="form-label">Kelurahan</label>
+                                    <label class="form-label">Kelurahan</label>     
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="selectKelurahan">Kelurahan</label>

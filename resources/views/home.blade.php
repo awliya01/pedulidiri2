@@ -1,6 +1,17 @@
 @extends('template.app')
 
 @section('content')
+    @if (session('access-not-found'))
+        {{-- <div class="col-lg-12 align-self-center show-up">
+            <div class="alert alert-danger" role="alert">
+                <strong>{{ session('access-not-found') }}</strong>
+                <button type="button" class="close" data-dismiss="alert">x</button>
+            </div>
+        </div> --}}
+        <script>
+            alert("Anda Tidak Memiliki Akses");
+        </script>
+    @endif
     <div class="col-lg-6 align-self-center">
         <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
             <div class="row">

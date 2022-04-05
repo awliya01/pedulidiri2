@@ -133,7 +133,7 @@ class UserController extends Controller
     public function generatePDF()
     {
         $user = User::all();
-     
+        
         $pdf = PDF::loadview('print.user_pdf', ['user' => $user]);
         // return $pdf->download('laporan-user.pdf');
         return $pdf->stream();

@@ -13,7 +13,9 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <title>{{ config('app.name', 'PEDULI DIRI') }}</title>
+    <link rel="icon" href="{{ asset('template/assets/images/bg-asli.png') }}" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('template/assets/images/bg-asli.png') }}" />
+    <title>@yield('title')</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('template/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -57,7 +59,8 @@ https://templatemo.com/tm-570-chain-app-dev
     @include('template.partikel.modal.auth')
 
 
-    <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="main-banner wow fadeIn" style="padding-top: 100px;" id="top" data-wow-duration="1s"
+        data-wow-delay="0.5s">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -644,7 +647,7 @@ https://templatemo.com/tm-570-chain-app-dev
                 </div> --}}
     </div>
     </div>
-    </footer> 
+    </footer>
 
 
     <!-- Scripts -->

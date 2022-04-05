@@ -13,6 +13,8 @@
                         @if (isset(Auth::user()->nama))
                             <li class="scroll-to-section"><a href="/home" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="/diri" class="active">Data Perjalanan</a></li>
+                            <li class="scroll-to-section"><a href="/user/show/{{ Auth::user()->id }}"
+                                    class="active">Profile</a></li>
                             @if (Auth::user()->role == 'admin')
                                 <li class="scroll-to-section"><a href="/user" class="active">Data User</a></li>
                             @endif
@@ -31,7 +33,7 @@
                                     @csrf
                                 </form>
                             @else
-                                <div class="gradient-button"><a id="modal_trigger" href="#modal"><i
+                                <div class="gradient-button"><a id="modal_trigger" href="{{ route('login') }}"><i
                                             class="fa fa-sign-in-alt"></i> Sign In Now</a></div>
                             @endif
                         </li>
